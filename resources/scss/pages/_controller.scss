@@ -3,3 +3,30 @@ body{
   zoom: reset;
 }
 
+.controller-wrapper{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+
+  .selects-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    @include xs{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+
+  button{
+    padding: 8px 16px;
+    width: 100%;
+    background: #94b6e9;
+    border: 0;
+    border-radius :4px;
+    &:active{
+      background: darken(#94b6e9, 5);
+    }
+  }
+}

@@ -7,13 +7,3 @@
     transform: rotate(405deg);
   }
 }
-
-@keyframes rotate-device {
-  0%,90%,100%{
-    transform: rotate(0deg);
-  }
-
-  30%,80%{
-    transform: rotate(-90deg);
-  }
-}

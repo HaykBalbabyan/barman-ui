@@ -58,64 +58,38 @@ export default class Events {
     #initializeMovements(){
         const that = this;
 
-        let fb = null,
-            rl = null;
+        event('click','.controller-wrapper .send-button .send', function (e,button) {
+            let cupsData = [];
+            let drinksData = [];
 
-        const isTouch = window.matchMedia("(any-hover: none)").matches;
+            const cups = elements('.controller-wrapper .drink-for-cup');
 
-        const startEvent = isTouch ? 'touchStart' : 'mouseDown';
-        const endEvent = isTouch ? 'touchEnd' : 'mouseUp';
-
-        event(startEvent,'.controller-wrapper .control-button',function (e, button) {
-            if (button?.dataset?.isBrake){
-                fb = null;
-                rl = null;
-            } else {
-
-                const direction = button?.dataset?.direction;
-
-                fb = direction === 'forward' || direction === 'backward' ? direction : fb;
-                rl = direction === 'right' || direction === 'left' ? direction : rl;
-
+            for (const cup of cups){
+                if (cup.value){
+                    cupsData.push(cup.dataset?.cup);
+                    drinksData.push(cup.value);
+                }
             }
 
-            element('.temp').textContent = 'Directions: ' + fb + ' ' + rl;
+            that.#start(cupsData,drinksData)
 
-            that.#move(fb,rl)
         });
 
-        event(endEvent, '.controller-wrapper .control-button', function (e, button) {
-            const direction = button?.dataset?.direction;
-
-            fb = direction === 'forward' || direction === 'backward' ? null : fb;
-            rl = direction === 'right' || direction === 'left' ? null : rl;
-
-            element('.temp').textContent = 'Directions: ' + fb + ' ' + rl;
-
-            that.#move(fb,rl)
-        });
-
-        if(!isTouch) {
-            console.log(endEvent);
-            event(endEvent, '.controller-wrapper', function (e, button) {
-                if (button?.dataset?.isBrake) return;
-
-                fb = null;
-                rl = null;
-
-                element('.temp').textContent = 'Directions: ' + fb + ' ' + rl;
-
-                that.#move(fb,rl)
-            });
-        }
     }
 
-    #move(fb,rl){
-        const direction = rl || fb;
+    #start(cups,drinks){
+        cups = cups.join(',');
+        drinks = drinks.join(',');
 
-        const url = !direction ? '/brake' : '/move-' + direction;
+        if (cups)
+
         ajax({
-            url: url,
+            url: '/ajax',
+            method:'get',
+            data: {
+                cups:cups,
+                drinks:drinks,
+            },
             success(response){}
         })
     }
