@@ -1,6 +1,6 @@
 export const config = {
     templates: {
-        urlpath : 'http://barman.loc/public',
+        urlpath : 'http://barman.infinitycloud.ru/public',
         dirpath : './public'
     },
 };

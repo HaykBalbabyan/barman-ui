@@ -1,6 +1,6 @@
 module.exports = {
-    site: 'http://localhost',
-    files: 'http://barman.loc'
+    site: 'http://192.168.18.119',
+    files: 'http://barman.infinitycloud.ru'
 };
 
 
