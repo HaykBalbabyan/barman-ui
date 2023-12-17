@@ -1,0 +1,91 @@
+
+@mixin mouse {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin notMouse {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @include mouse {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+
+// =========== Breakpoints ===========
+@mixin xs() {
+  @media (min-width: 390px) {
+    @content;
+  }
+}
+
+@mixin sm() {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @media (min-width: 1220px) {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @media (min-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin xxxl() {
+  @media (min-width: 1480px) {
+    @content;
+  }
+}
+
+
+// ========= Typography ========
+
+@mixin scrollbar($orient:vertical,$size:8px) {
+  @include mouse {
+    &::-webkit-scrollbar {
+      @if ($orient == vertical) {
+        width: $size;
+      } @else if ($orient == horizontal) {
+        height: $size;
+      }
+    }
+    &::-webkit-scrollbar-track {
+    }
+    &::-webkit-scrollbar-thumb {
+      cursor: pointer;
+      border-style: solid;
+      @if ($orient == vertical) {
+        border-width: 10px 1px;
+      } @else if ($orient == horizontal) {
+        border-width: 1px 10px;
+      }
+
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "controller": {
+    "name": "Dashboard",
+    "path": "/controller",
+    "template": "/controller.html",
+    "title": "Controller"
+  },
+  "dashboard": {
+    "name": "Dashboard",
+    "path": "/",
+    "template": "/dashboard.html",
+    "title": "Dashboard"
+  },
+  "not-found": {
+    "name": "Not found",
+    "template": "/not-found.html",
+    "title": "404 Not found"
+  }
+}

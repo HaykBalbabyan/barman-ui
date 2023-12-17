@@ -1,0 +1,67 @@
+html, body,
+div, span,
+h1, h2, h3, h4, h5, h6,
+p,
+ul, ol, li,
+dl, dt, dd,
+form, fieldset,
+blockquote,
+table, th, td,
+input, textarea, button,
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+svg{
+  fill:currentColor;
+}
+
+a{
+  text-decoration-color: #5994eb;
+}
+
+html{
+  font-family: $font_family;
+  @media (orientation: portrait) {
+    overflow: hidden;
+  }
+}
+
+body{
+  overflow-x: hidden;
+  background: #e7effb;
+  background: url("__compiler__files__/public/assets/images/globes-3d.png");
+  background-size: 70%;
+}
+
+#rotate-error-wrapper {
+  z-index: -999;
+  opacity: 0;
+  position: fixed;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  text-align: center;
+  gap:30px;
+
+  svg{
+    width: 40vw;
+    height: auto;
+    aspect-ratio: 1;
+    animation: 4s ease-in-out 0s infinite rotate-device;
+  }
+
+  @media (orientation: portrait) {
+    z-index: 999;
+    opacity: 1;
+    background: #dfdfdf;
+  }
+}
