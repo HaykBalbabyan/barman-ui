@@ -1,7 +1,7 @@
 {
   "name": "barmen-ui",
   "author": "Hayk Balbabyan & Razmik Hovnanyan",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "deploy": "echo \"\r\rBuild...\r\r\"  && gulp build && echo \"\r\rUpload...\r\r\" && node ./commands/upload -- --t",
     "upload": "node ./commands/upload -- --t",
