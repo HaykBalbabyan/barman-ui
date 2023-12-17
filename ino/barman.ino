@@ -1,9 +1,9 @@
+#include <ArduinoJson.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
-#include <ArduinoJson.h>
 
-const char* ssid = ""; // WIFI name
-const char* password = ""; //WIFI password
+const char* ssid = "pixel_"; // WIFI name
+const char* password = "Hi_RAzmik1234"; //WIFI password
 
 ESP8266WebServer server(80);
 
@@ -70,27 +70,23 @@ void routes(){
 
 void route_ajax() {
   // change variable values and do something
+  DynamicJsonDocument response(200);
 
   response["success"] = false;
 
   int statusCode = 403;
 
-  if(server.hasArg("cups") && server.hasArg('drinks')){
+  if(server.hasArg("drink")){
 
         //drink = server.arg("drink") //for eg 3,1,2
 
         //logic here
 
-        statusCode = 200
+        statusCode = 200;
 
         response["success"] = true;
   }
-
-  DynamicJsonDocument response(statusCode);
-
-  server.send(statusCode, "application/json", sendJson(response));
 }
-
 
 void route_main(){
   server.send(200, "text/html", render_main_page());
