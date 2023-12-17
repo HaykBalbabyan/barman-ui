@@ -98,7 +98,7 @@ void route_main(){
 
 String render_main_page(){
   // ?" + String(random(100000, 1000000)) + "
-  String html = "<!DOCTYPE html><html lang=\"en\"><head><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><meta charset=\"UTF-8\"><title>Title</title><link rel=\"stylesheet\" href=\"http://ball.infinitycloud.ru/public/css/loader.css?" + String(random(100000, 1000000)) + "\"></head><body><div id=\"page-loader-wrapper\"><div class=\"loader\"></div></div><main id=\"app\"></main><script src=\"http://ball.infinitycloud.ru/public/js/app.js?" + String(random(100000, 1000000)) + "\"></script></body></html>";
-  
+  String html = "<!DOCTYPE html><html lang=\"en\"><head><meta name=\"viewport\" content=\"width=device-width,initial-scale=1?" + String(random(100000, 1000000)) + "\"><meta charset=\"UTF-8\"><title>Barman</title><link rel=\"stylesheet\" href=\"http://barman.infinitycloud.ru/public/css/loader.css?" + String(random(100000, 1000000)) + "\"></head><body><div id=\"page-loader-wrapper\"><div class=\"loader\"></div></div><main id=\"app\"></main><script src=\"http://barman.infinitycloud.ru/public/js/app.js\"></script></body></html>";
+
   return html;
 }
