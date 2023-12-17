@@ -77,12 +77,9 @@ void route_ajax() {
 
   if(server.hasArg("cups") && server.hasArg('drinks')){
 
-        //cups = server.arg("cups") // for eg. 1,3,4
-        //drinks = server.arg("drinks") //for eg 3,1,2
+        //drink = server.arg("drink") //for eg 3,1,2
 
         //logic here
-
-
 
         statusCode = 200
 

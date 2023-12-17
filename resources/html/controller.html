@@ -3,15 +3,12 @@
 <div class="controller-wrapper">
 
     <div class="selects-wrapper">
-        {{ for(let i = 1; i <= 6 ; i++){
-
         <label>
-            <span class="text">Cup ` + i + `</span>
-            <select class="drink-for-cup" data-cup="` + i + `">
+            <span class="text">Select a drink</span>
+            <select class="drink-for-cup" data-cup="1">
                 {{include('./parts/drinks.html')}}
             </select>
         </label>
-        } }}
 
     </div>
 

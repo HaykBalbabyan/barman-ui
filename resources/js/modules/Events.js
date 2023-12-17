@@ -59,36 +59,32 @@ export default class Events {
         const that = this;
 
         event('click','.controller-wrapper .send-button .send', function (e,button) {
-            let cupsData = [];
             let drinksData = [];
 
             const cups = elements('.controller-wrapper .drink-for-cup');
 
             for (const cup of cups){
                 if (cup.value){
-                    cupsData.push(cup.dataset?.cup);
                     drinksData.push(cup.value);
                 }
             }
 
-            that.#start(cupsData,drinksData)
+            if (drinksData.length) {
+                that.#start(drinksData)
+            }
 
         });
 
     }
 
-    #start(cups,drinks){
-        cups = cups.join(',');
+    #start(drinks){
         drinks = drinks.join(',');
-
-        if (cups)
 
         ajax({
             url: '/ajax',
             method:'get',
             data: {
-                cups:cups,
-                drinks:drinks,
+                drink:drinks,
             },
             success(response){}
         })
