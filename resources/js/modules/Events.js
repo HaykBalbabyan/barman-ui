@@ -64,27 +64,24 @@ export default class Events {
             const cups = elements('.controller-wrapper .drink-for-cup');
 
             for (const cup of cups){
-                if (cup.value){
-                    drinksData.push(cup.value);
-                }
+                drinksData.push(cup.value || 'none');
             }
 
-            if (drinksData.length) {
-                that.#start(drinksData)
-            }
-
+            that.#start(drinksData);
         });
 
     }
 
     #start(drinks){
-        drinks = drinks.join(',');
 
         ajax({
             url: '/ajax',
             method:'get',
             data: {
-                drink:drinks,
+                cup1:drinks[0],
+                cup2:drinks[1],
+                cup3:drinks[2],
+                cup4:drinks[3],
             },
             success(response){}
         })
